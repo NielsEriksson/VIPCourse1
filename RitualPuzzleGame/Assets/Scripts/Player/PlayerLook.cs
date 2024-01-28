@@ -17,7 +17,7 @@ public class PlayerLook: MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = false; 
     }
 
     // Update is called once per frame
@@ -29,14 +29,14 @@ public class PlayerLook: MonoBehaviour
         yRotation += mouseX;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -85f, 85f);
+        xRotation = Mathf.Clamp(xRotation, -85f, 85f); //limits rotation upwards and downwords
 
-        playerCamera.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        playerCamera.rotation = Quaternion.Euler(xRotation, yRotation, 0); //rotates camera , used for up and downrotation
+        transform.rotation = Quaternion.Euler(0, yRotation, 0); // rotates player, used for left and right rotation
 
     }
 
-    private void OnLook(InputValue value)
+    private void OnLook(InputValue value) //gets mouse input 
     {
         mouseX = value.Get<Vector2>().x;
         mouseY = value.Get<Vector2>().y;
