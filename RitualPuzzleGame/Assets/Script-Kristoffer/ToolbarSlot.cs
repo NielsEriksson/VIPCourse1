@@ -2,20 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ToolbarSlot : MonoBehaviour
 {
-    Image image;
+    private Image _image;
+    [SerializeField]private string _text;
+    
+
     private void Awake()
     {
-        image = gameObject.transform.GetChild(0).GetComponent<Image>();
+        _image = gameObject.transform.GetChild(0).GetComponent<Image>();    
     }
+    public string GetText()
+    {
+        return _text;
+    }
+    public void ReturnText()
+    {
+        string text = DragAndDropController.instance.GetText(_text);
+        if (text !="")
+        {
+            string tempTex = _text;
+            _text = text;
+        }
+        else { _text = ""; }
+    }
+
     public void OnSelected()
     {
-        image.color = Color.green;
+        _image.color = Color.green;
     }
     public void OffSelected()
     {
-        image.CrossFadeAlpha(0.0f, 1.0f, true);
+        _image.color = Color.white;
     }
 }
