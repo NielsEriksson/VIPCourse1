@@ -98,7 +98,7 @@ public class Toolbar : MonoBehaviour
     public int CheckAvailible()
     {
         for (int i = 1; i < _slotsDict.Count; i++)
-            if (_slotsDict[i].GetItem() == null)
+            if (_slotsDict[i].GetItem().GetSprite() == null)
                 return i;
         return 0;
     }

@@ -8,22 +8,27 @@ using System;
 public class DragAndDropController : MonoBehaviour
 {
     public static DragAndDropController instance;
-    private CollectibleObject _collectedObject;
+    private CollectInfo _collectedObject;
     [SerializeField] private Image _imageMovable;
     
     private InventorySlot _slot;
     private ToolbarSlot _toolSlot;
     private void Awake()
-    {
+    {       
         if(instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this);
         }             
     }
+    private void Start()
+    {
+        if(_collectedObject == null)
+            _collectedObject = new CollectInfo(null,"",null);
+    }
     private void Update()
     {
-        if(_collectedObject != null)
+        if(_collectedObject.GetSprite() != null)
         {
             _imageMovable.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y,-1);
             if(_imageMovable.enabled !=true) _imageMovable.enabled = true; 
@@ -32,15 +37,16 @@ public class DragAndDropController : MonoBehaviour
     }
     private void SetText()
     {
+        
         _imageMovable.sprite = _collectedObject.GetSprite();
     }
-    public CollectibleObject GetItem(CollectibleObject movedItem, InventorySlot inv=null, ToolbarSlot tool=null)
+    public CollectInfo GetItem(CollectInfo movedItem, InventorySlot inv=null, ToolbarSlot tool=null)
     {
-        CollectibleObject tempText = _collectedObject;
-        _collectedObject = movedItem;
-        if(_collectedObject!=null)
+        CollectInfo tempText = _collectedObject;
+        _collectedObject = movedItem;       
+        if (_collectedObject != null)
             SetText();
-        SetOrigin(inv, tool);
+        SetOrigin(inv, tool);       
         return tempText;
     }
 

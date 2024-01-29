@@ -63,6 +63,8 @@ public class PlayerInteract : MonoBehaviour
         if (objectToInteract!=null)
         {
             objectToInteract.Interact();
+            objectToInteract = null;
+            objectToInteractGO = null;
         }
     }
 

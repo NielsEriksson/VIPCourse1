@@ -1,24 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-[CreateAssetMenu(menuName = "CollectibleObject")]
-public class CollectibleObject : MonoBehaviour
+
+public class CollectInfo : ScriptableObject
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private string itemName;
     [SerializeField] private Sprite itemSprite;
-    public CollectibleObject(GameObject prefab, string itemName, Sprite itemSprite)
+    public CollectInfo(GameObject prefab, string itemName, Sprite itemSprite)
     {
         this.prefab = prefab;
         this.itemName = itemName;
         this.itemSprite = itemSprite;
     }
 
-    public CollectibleObject GetItem()
-    {
-        return this;
-    }
     public string GetText()
     {
         return itemName;
@@ -31,10 +26,10 @@ public class CollectibleObject : MonoBehaviour
     {
         return prefab;
     }
-    public void SetCollectible(CollectInfo cI)
+    public void SetNull()
     {
-        this.prefab = cI.GetPrefab();
-        this.itemName = cI.GetText();
-        this.itemSprite = cI.GetSprite();
+        prefab = null;
+        itemName = null;
+        itemSprite = null;
     }
 }

@@ -3,48 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class ToolbarSlot : MonoBehaviour
 {
     private Image _bgImage;
     private Image _image;
-    [SerializeField] private CollectibleObject _object;
     
+    private CollectInfo _info;
 
     private void Awake()
     {
-        if(_object == null)
-        {
-            _object = new CollectibleObject();
-        }
         _bgImage = gameObject.transform.GetChild(0).GetComponent<Image>();
         _image = gameObject.transform.GetChild(1).GetComponent<Image>();
+        
+    }
+    private void Start()
+    {
+        if(_info==null)
+        {
+            _info = new CollectInfo(null, "", null);
+        }
         SetImage();
     }
     public string GetText()
     {
-        if(_object != null)
-            return _object.GetText();
+        if(_info != null)
+            return _info.GetText();
         return "";
     }
-    public CollectibleObject GetItem()
+    public CollectInfo GetItem()
     {
-        return _object;
+        return _info;
     }
     public void SetItem(CollectibleObject co)
-    {
-        _object = co;
+    {       
+        _info = new CollectInfo(co.GetPrefab(), co.GetText(), co.GetSprite());       
         SetImage();
+        
     }
     public void ReturnItem()
     {
-        CollectibleObject item = DragAndDropController.instance.GetItem(_object);
+        CollectInfo item = DragAndDropController.instance.GetItem(_info);
         if (item != null)
         {
-            CollectibleObject tempTex = _object;
-            _object = item;           
+            CollectInfo tempTex = _info;
+            _info = item;           
         }
-        else { _object = null; }
+        else { _info.SetNull(); }
         SetImage();
     }
 
@@ -58,10 +64,10 @@ public class ToolbarSlot : MonoBehaviour
     }
     private void SetImage()
     {
-        if(_object!=null)
+        if(_info.GetSprite()!=null)
         {
             _image.CrossFadeAlpha(1f, 0.5f, true);
-            _image.sprite = _object.GetSprite();
+            _image.sprite = _info.GetSprite();
         }
         else { _image.CrossFadeAlpha(0f,0.5f,true); }
     }
