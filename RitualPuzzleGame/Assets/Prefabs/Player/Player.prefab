@@ -588,7 +588,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSource: {fileID: 6079067467040015752}
   interactRange: 5
-  eInteract: {fileID: 8177766750035965519}
+  eInteract: {fileID: 2833417623004098976}
+  outlineMaterial: {fileID: 2100000, guid: c408359b2c426b14abcfd61437bfde38, type: 2}
 --- !u!114 &8622183333868818364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,13 +729,14 @@ GameObject:
   - component: {fileID: 940424546954879322}
   - component: {fileID: 592172466915842175}
   - component: {fileID: 5032868781112781293}
+  - component: {fileID: 2833417623004098976}
   m_Layer: 0
   m_Name: InteractToolTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940424546954879322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -794,3 +796,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2833417623004098976
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177766750035965519}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

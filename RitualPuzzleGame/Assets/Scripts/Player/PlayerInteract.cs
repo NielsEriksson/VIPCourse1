@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,30 +16,67 @@ public class PlayerInteract : MonoBehaviour
     public Transform interactSource;
     public float interactRange;
     private IInteractable objectToInteract;
-    [SerializeField] GameObject eInteract; //Interact tooltip UI gameObject
+    private GameObject objectToInteractGO;
+    [SerializeField] CanvasGroup eInteract; //Interact tooltip UI gameObject
+    [SerializeField] Material outlineMaterial;
     // Update is called once per frame
     void LateUpdate()
     {
         Ray r = new Ray(interactSource.position, interactSource.forward);
         if(Physics.Raycast(r, out RaycastHit hitInfo,interactRange)) 
         {
-            if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
+                if (objectToInteractGO != null) RemoveOutline(objectToInteractGO);
                 objectToInteract = interactObj;
-                if(!eInteract.activeInHierarchy) eInteract.SetActive(true);
+                objectToInteractGO = hitInfo.collider.gameObject;
+                eInteract.GetComponent<CanvasGroup>().alpha = 1;
+                objectToInteract.SetInteractionMessage(eInteract.gameObject);
+                SetOutline(objectToInteractGO);
+                return;
             }
             else
             {
-                if(eInteract.activeInHierarchy)
-                    eInteract.SetActive(false);
+                if (objectToInteractGO != null)
+                {
+                    eInteract.GetComponent<CanvasGroup>().alpha = 0;
+                    if (objectToInteractGO != null) RemoveOutline(objectToInteractGO);
+                    objectToInteract = null;
+                    objectToInteractGO = null;
+                }
             }    
         }
+        else
+        {
+            if (objectToInteractGO != null)
+            {
+                eInteract.GetComponent<CanvasGroup>().alpha = 0;
+                if (objectToInteractGO != null) RemoveOutline(objectToInteractGO);
+                objectToInteract = null;
+                objectToInteractGO = null;
+            }
+        }
     }
+
     private void OnInteract(InputValue value)
     {
         if (objectToInteract!=null)
         {
             objectToInteract.Interact();
         }
+    }
+
+    public void SetOutline(GameObject go)
+    {
+        List<Material> materials = new List<Material>();
+        materials.Add(go.GetComponent<Renderer>().material);
+        materials.Add(outlineMaterial);
+        go.GetComponent<Renderer>().SetMaterials(materials);
+    }
+    public void RemoveOutline(GameObject go)
+    {
+        List<Material> materials = new List<Material>();
+        materials.Add(go.GetComponent<Renderer>().materials[0]);
+        go.GetComponent<Renderer>().SetMaterials(materials);
     }
 }

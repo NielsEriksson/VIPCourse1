@@ -21,7 +21,7 @@ public class PlayerLook: MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mouseX *= Time.deltaTime * sensx;
         mouseY *= Time.deltaTime * sensy;

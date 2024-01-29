@@ -13,6 +13,11 @@ public class PickUpable : MonoBehaviour,IInteractable
 
     public void SetInteractionMessage(GameObject eInteract)
     {
+        if(PlayerPickUp.instance!=null && PlayerPickUp.instance.isHoldingItem)
+        {
+            eInteract.GetComponent<CanvasGroup>().alpha = 0;
+            return;
+        }
         eInteract.GetComponentInChildren<TMP_Text>().text = "Pick Up";
     }
 
