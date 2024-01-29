@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96600b4bcf94baf46a64d7eb656aa66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: 1
+  _object: {fileID: 0}
 --- !u!114 &6141293805720633684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8063983004369345547}
         m_TargetAssemblyTypeName: ToolbarSlot, Assembly-CSharp
-        m_MethodName: ReturnText
+        m_MethodName: ReturnItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

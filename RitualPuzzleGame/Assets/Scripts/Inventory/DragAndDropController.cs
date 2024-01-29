@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System;
 
 public class DragAndDropController : MonoBehaviour
 {
     public static DragAndDropController instance;
-    private string _textDrop = "";
-    [SerializeField] private GameObject _textMovable;
+    private CollectibleObject _collectedObject;
+    [SerializeField] private Image _imageMovable;
+    
     private InventorySlot _slot;
     private ToolbarSlot _toolSlot;
     private void Awake()
@@ -21,20 +23,23 @@ public class DragAndDropController : MonoBehaviour
     }
     private void Update()
     {
-        if(_textDrop != "")
+        if(_collectedObject != null)
         {
-            _textMovable.transform.position = Input.mousePosition;
+            _imageMovable.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y,-1);
+            if(_imageMovable.enabled !=true) _imageMovable.enabled = true; 
         }
+        else { if (_imageMovable.enabled == true) _imageMovable.enabled = false; }
     }
     private void SetText()
     {
-        _textMovable.GetComponent<TextMeshProUGUI>().text = _textDrop;
+        _imageMovable.sprite = _collectedObject.GetSprite();
     }
-    public string GetText(string movedText, InventorySlot inv=null, ToolbarSlot tool=null)
+    public CollectibleObject GetItem(CollectibleObject movedItem, InventorySlot inv=null, ToolbarSlot tool=null)
     {
-        string tempText = _textDrop;
-        _textDrop = movedText;
-        SetText();
+        CollectibleObject tempText = _collectedObject;
+        _collectedObject = movedItem;
+        if(_collectedObject!=null)
+            SetText();
         SetOrigin(inv, tool);
         return tempText;
     }
@@ -52,20 +57,20 @@ public class DragAndDropController : MonoBehaviour
     }
     private void ClearText()
     {
-        _textDrop = "";
+        _collectedObject = null;
         SetText();
     }
     private void ReturnText()
     {
         if(_slot)
         {
-            _slot.SetItem(_textDrop);
-            ClearText();
-            _slot = null;
+            //_slot.SetItem(_collectedObject);
+            //ClearText();
+            //_slot = null;
         }
         else if(_toolSlot)
         {
-            _toolSlot.GetText();
+            _toolSlot.GetItem();
             ClearText();
             _toolSlot = null;
         }

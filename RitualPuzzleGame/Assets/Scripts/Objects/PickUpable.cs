@@ -6,12 +6,12 @@ using UnityEngine;
 public class PickUpable : MonoBehaviour,IInteractable
 {
    
-    public void Interact()
+    public virtual void Interact()
     {
         PlayerPickUp.instance.PickUp(gameObject);
     }
 
-    public void SetInteractionMessage(GameObject eInteract)
+    public virtual void SetInteractionMessage(GameObject eInteract)
     {
         if(PlayerPickUp.instance!=null && PlayerPickUp.instance.isHoldingItem)
         {

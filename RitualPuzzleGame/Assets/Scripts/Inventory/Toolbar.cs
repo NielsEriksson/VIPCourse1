@@ -91,6 +91,19 @@ public class Toolbar : MonoBehaviour
     }
     private void UpdateItem()
     {
-        _centerText.text = _slotsDict[_currentSlot].GetText();
+        if(_slotsDict[_currentSlot].GetText()!="")
+            _centerText.text = _slotsDict[_currentSlot].GetText();
+        else _centerText.text = ""; 
+    }
+    public int CheckAvailible()
+    {
+        for (int i = 1; i < _slotsDict.Count; i++)
+            if (_slotsDict[i].GetItem() == null)
+                return i;
+        return 0;
+    }
+    public void SetItem(int i, CollectibleObject co)
+    {
+        _slotsDict[i].SetItem(co);
     }
 }
