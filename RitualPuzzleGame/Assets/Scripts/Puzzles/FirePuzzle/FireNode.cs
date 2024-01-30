@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class FireNode : MonoBehaviour
+public class FireNode : MonoBehaviour, IInteractable
 {
     private float rotationDuration;
 
@@ -13,13 +14,7 @@ public class FireNode : MonoBehaviour
         rotationDuration = 3f;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Rotate();
-        }
-    }
+
 
     public void Rotate()
     {
@@ -56,5 +51,15 @@ public class FireNode : MonoBehaviour
         coroutine = null;
 
         Debug.Log("Rotation completed!");
+    }
+
+    public void Interact()
+    {
+        Rotate();
+    }
+
+    public void SetInteractionMessage(GameObject eInteract)
+    {
+        eInteract.GetComponentInChildren<TMP_Text>().text = "Rotate";
     }
 }
