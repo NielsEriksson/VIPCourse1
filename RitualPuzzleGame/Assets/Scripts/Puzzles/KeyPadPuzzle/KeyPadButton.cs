@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using TMPro;
 using UnityEngine;
 
-public class KeyPadButton : MonoBehaviour
+public class KeyPadButton : MonoBehaviour, IInteractable
 {
     public string buttonName;
     public bool pressed;
@@ -21,13 +22,6 @@ public class KeyPadButton : MonoBehaviour
         pressedPosition = transform.position + new Vector3(0, 0, pressDistance);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(buttonToPress))
-        {
-            Press();
-        }
-    }
 
     public void Press()
     {
@@ -83,5 +77,15 @@ public class KeyPadButton : MonoBehaviour
             yield return null;
         }
         transform.position = end;
+    }
+
+    public void Interact()
+    {
+        Press();
+    }
+
+    public void SetInteractionMessage(GameObject eInteract)
+    {
+        eInteract.GetComponentInChildren<TMP_Text>().text = "Press";
     }
 }
