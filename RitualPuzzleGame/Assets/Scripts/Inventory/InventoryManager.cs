@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -11,12 +12,10 @@ public class InventoryManager : MonoBehaviour
         if(Instance== null)
             Instance = this;       
     }
-    private void Update()
+    
+    private void OnOpenInventory(InputValue value)
     {
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            ToggleInventory();
-        }
+        ToggleInventory();
     }
     private void ToggleInventory()
     {
