@@ -223,11 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 1
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 49
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &530504362213961877
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,11 +346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 2
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 50
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &985781442921729927
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,11 +469,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 5
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 53
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &1249042007484367409
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,11 +592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 8
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 56
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &1515654632708815651
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,11 +715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 6
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 54
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &1788928407931254247
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,11 +871,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 9
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 57
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &2804919886857054824
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,11 +994,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 7
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 55
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &2869655721874617735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,11 +1892,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 3
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 51
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &7645902937648350245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93798b47d65c948a8addf0ad003ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctOrder: 060000000100000008000000070000000500000003000000020000000900000004000000
 --- !u!1 &9133066136376751575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,11 +2069,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec849b51613e4844b7de6bc6994c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: 
+  buttonIndex: 4
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  buttonToPress: 52
+  keyPad: {fileID: 5325288431772620139}
 --- !u!1 &9149623100077780460
 GameObject:
   m_ObjectHideFlags: 0

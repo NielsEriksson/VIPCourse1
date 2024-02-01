@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class KeyPadButton : MonoBehaviour, IInteractable
 {
-    public string buttonName;
+    public int buttonIndex;
     public bool pressed;
 
     [SerializeField] private float pressDistance, speed;
@@ -14,7 +14,7 @@ public class KeyPadButton : MonoBehaviour, IInteractable
 
     Coroutine movement;
 
-    [SerializeField] private KeyCode buttonToPress;
+    [SerializeField] private KeyPad keyPad;
 
     private void Start()
     {
@@ -77,6 +77,11 @@ public class KeyPadButton : MonoBehaviour, IInteractable
             yield return null;
         }
         transform.position = end;
+        if (start == startPosition)
+        {
+            keyPad.AddIndex(buttonIndex);
+        }
+        
     }
 
     public void Interact()
