@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Toolbar : MonoBehaviour
 {
@@ -26,11 +27,7 @@ public class Toolbar : MonoBehaviour
     {
         SelectSlot(1);
     }
-    private void Update()
-    {
-        CheckAlphaNumericKeys();
-        OnScroll();
-    }
+    
     private void SelectSlot(int index)
     {
         _currentSlot = index;
@@ -39,56 +36,27 @@ public class Toolbar : MonoBehaviour
         _selectedKey = _slotsDict[index];
         UpdateItem();
     }
-    private void OnScroll()
+    private void OnScrollToolBar(InputValue value)
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (value.Get<float>()>  0f)
         {
-            if(_currentSlot==_slotsDict.Count){_currentSlot = 1;}
-            else{ _currentSlot++; }
+            if (_currentSlot == _slotsDict.Count) { _currentSlot = 1; }
+            else { _currentSlot++; }
             SelectSlot(_currentSlot);
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (value.Get<float>() < 0f)
         {
             if (_currentSlot == 1) { _currentSlot = _slotsDict.Count; }
             else { _currentSlot--; }
             SelectSlot(_currentSlot);
         }
     }
-    private void CheckAlphaNumericKeys()
+ 
+    private void OnSelectToolBar(InputValue value)
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SelectSlot(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SelectSlot(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SelectSlot(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SelectSlot(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            SelectSlot(5);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            SelectSlot(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            SelectSlot(7);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            SelectSlot(8);
-        }
+        SelectSlot(int.Parse(Input.inputString));
     }
+   
     private void UpdateItem()
     {
         if(_slotsDict[_currentSlot].GetText()!="")
