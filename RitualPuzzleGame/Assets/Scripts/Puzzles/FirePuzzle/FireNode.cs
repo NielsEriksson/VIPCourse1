@@ -9,9 +9,12 @@ public class FireNode : MonoBehaviour, IInteractable
 
     Coroutine coroutine;
 
+    public int rotationIndex;
+
     private void Start()
     {
         rotationDuration = 3f;
+        rotationIndex = (int)(transform.localEulerAngles.y / 45f);
     }
 
 

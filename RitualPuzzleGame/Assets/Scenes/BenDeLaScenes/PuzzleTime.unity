@@ -360,6 +360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirePuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 1393245969600666045, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4455963534939345086, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -410,6 +415,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4613212755175424556, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868538460329481526, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868538460329481526, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868538460329481526, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.69168615
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868538460329481526, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868538460329481526, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273634044084069540, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -423,6 +463,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5011436986468364228, guid: 79bbdae0c47c6b143aad4777b8af1eae,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 544c2617-ee91-40c2-81ab-df1b7fdf9efb
+      objectReference: {fileID: 0}
     - target: {fileID: 6213566191080463880, guid: 79bbdae0c47c6b143aad4777b8af1eae,
         type: 3}
       propertyPath: m_LocalPosition.x
