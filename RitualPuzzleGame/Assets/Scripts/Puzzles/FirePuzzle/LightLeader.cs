@@ -25,28 +25,50 @@ public class LightLeader : MonoBehaviour
             if (fireNode != null)
             {
                 Vector3 rotation = fireNode.transform.localEulerAngles;
+                int turn = (int)Mathf.Round(rotation.y);
                 if (transform.forward == Vector3.forward)
                 {
-                    if (rotation.y == 315f)
+                    if (turn == 315)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
                     }
-                    else if (rotation.y == 225f)
+                    else if (turn == 225)
                     {
-                        transform.forward = Vector3.left;
+                        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
                     }
                 }
                 else if (transform.forward == Vector3.back)
                 {
-
+                    if (turn == 45)
+                    {
+                        transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                    }
+                    else if (turn == 135)
+                    {
+                        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                    }
                 }
                 else if (transform.forward == Vector3.left)
                 {
-
+                    if (turn == 45)
+                    {
+                        transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                    }
+                    else if (turn == 315)
+                    {
+                        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                    }
                 }
                 else if (transform.forward == Vector3.right)
                 {
-
+                    if (turn == 225)
+                    {
+                        transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                    }
+                    else if (turn == 135)
+                    {
+                        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                    }
                 }
             }
         }

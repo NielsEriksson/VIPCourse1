@@ -13,25 +13,7 @@ public class FirePuzzle : MonoBehaviour
 
     void Start()
     {
-        if (lineRenderer == null)
-            lineRenderer = GetComponent<LineRenderer>();
-        fireNodes = GetComponentsInChildren<FireNode>();
-        trailPoints = new Vector3[fireNodes.Length];
-        for (int i = 0; i < fireNodes.Length; i++)
-        {
-            trailPoints[i] = fireNodes[i].transform.position;
-        }
+        
     }
 
-    void Update()
-    {
-        UpdateTrail();
-    }
-
-    void UpdateTrail()
-    {
-        // Set line positions
-        lineRenderer.positionCount = trailPoints.Length;
-        lineRenderer.SetPositions(trailPoints);
-    }
 }
