@@ -12,6 +12,7 @@ public class PlayerLook: MonoBehaviour
     float xRotation, yRotation;
     private float mouseX;
     private float mouseY;
+    private bool isCursorLocked;
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +30,25 @@ public class PlayerLook: MonoBehaviour
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -85f, 85f); //limits rotation upwards and downwords
-        if (Input.GetKey(KeyCode.LeftControl) && Cursor.visible!=true){ UnLockState(); }
-        if (!Input.GetKey(KeyCode.LeftControl))
+        if (isCursorLocked)
         {
-            if(Cursor.visible != false){ LockState(); }
             playerCamera.rotation = Quaternion.Euler(xRotation, yRotation, 0); //rotates camera , used for up and downrotation
             transform.rotation = Quaternion.Euler(0, yRotation, 0); // rotates player, used for left and right rotation
         }
     }
 
+    private void OnShowCursor(InputValue value)
+    {
+        if (Cursor.visible)
+        {
+            LockState();
+        }
+        else
+        {
+            UnLockState();
+        }
+
+    }
     private void OnLook(InputValue value) //gets mouse input 
     {
         mouseX = value.Get<Vector2>().x;
@@ -47,10 +58,12 @@ public class PlayerLook: MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        isCursorLocked = true;
     }
     private void UnLockState()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        isCursorLocked = false;
     }
 }
