@@ -31,10 +31,12 @@ public class LightLeader : MonoBehaviour
                     if (turn == 315)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                        return;
                     }
                     else if (turn == 225)
                     {
                         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                        return;
                     }
                 }
                 else if (transform.forward == Vector3.back)
@@ -42,10 +44,12 @@ public class LightLeader : MonoBehaviour
                     if (turn == 45)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                        return;
                     }
                     else if (turn == 135)
                     {
                         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                        return;
                     }
                 }
                 else if (transform.forward == Vector3.left)
@@ -53,10 +57,12 @@ public class LightLeader : MonoBehaviour
                     if (turn == 45)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                        return;
                     }
                     else if (turn == 315)
                     {
                         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                        return;
                     }
                 }
                 else if (transform.forward == Vector3.right)
@@ -64,13 +70,16 @@ public class LightLeader : MonoBehaviour
                     if (turn == 225)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
+                        return;
                     }
                     else if (turn == 135)
                     {
                         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                        return;
                     }
                 }
             }
         }
+        Destroy(gameObject);
     }
 }

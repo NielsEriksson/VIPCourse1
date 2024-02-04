@@ -11,6 +11,8 @@ public class FireShooter : MonoBehaviour, IInteractable
 
     public GameObject particle;
 
+    [SerializeField] private GameObject startPosition;
+
     private void Start()
     {
         rotationDuration = 3f;
@@ -18,7 +20,7 @@ public class FireShooter : MonoBehaviour, IInteractable
 
     public void SpawnLightLeader()
     {
-        Instantiate(particle, transform.position, transform.rotation, transform);
+        Instantiate(particle, startPosition.transform.position, transform.rotation, transform);
     }
 
 
