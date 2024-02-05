@@ -82,6 +82,11 @@ public class LightLeader : MonoBehaviour
                     }
                 }
             }
+            EndSensor endSensor = other.GetComponent<EndSensor>();
+            if (endSensor != null)
+            {
+                endSensor.Complete();
+            }
         }
         Destroy(gameObject);
     }
