@@ -26,9 +26,12 @@ public class LightLeader : MonoBehaviour
             {
                 Vector3 rotation = fireNode.transform.localEulerAngles;
                 int turn = (int)Mathf.Round(rotation.y);
+
+                transform.position = fireNode.transform.position;
+
                 if (transform.forward == Vector3.forward)
                 {
-                    if (turn == 315)
+                    if (turn == 135)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
                         return;
@@ -41,12 +44,12 @@ public class LightLeader : MonoBehaviour
                 }
                 else if (transform.forward == Vector3.back)
                 {
-                    if (turn == 45)
+                    if (turn == 315)
                     {
                         transform.Rotate(new Vector3(0, 90, 0), Space.Self);
                         return;
                     }
-                    else if (turn == 135)
+                    else if (turn == 45)
                     {
                         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
                         return;
