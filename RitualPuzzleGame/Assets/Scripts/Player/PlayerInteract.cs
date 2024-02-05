@@ -12,6 +12,7 @@ interface IInteractable
 }
 public class PlayerInteract : MonoBehaviour
 {
+    public static PlayerInteract instance;
     public Transform interactSource;
     public float interactRange;
     private IInteractable objectToInteract;
@@ -19,11 +20,25 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] CanvasGroup eInteract; //Interact tooltip UI gameObject
     [SerializeField] Material outlineMaterial;
     // Update is called once per frame
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void LateUpdate()
     {
         Ray r = new Ray(interactSource.position, interactSource.forward);
         if(Physics.Raycast(r, out RaycastHit hitInfo,interactRange)) 
         {
+            Debug.Log(hitInfo.collider.gameObject);
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
                 if (objectToInteractGO != null) RemoveOutline(objectToInteractGO);

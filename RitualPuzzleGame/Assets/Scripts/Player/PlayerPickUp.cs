@@ -23,17 +23,22 @@ public class PlayerPickUp : MonoBehaviour
             instance = this;
         }
     }
-   
+   public GameObject GetCurrentItem()
+    {
+        return currentItem;
+    }
     public void PickUp(GameObject itemToPickUp) //this method allows to pick up a specific item 
     {
         if (!isHoldingItem)
         {
+            itemToPickUp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             itemToPickUp.GetComponent<Rigidbody>().useGravity = false;
             itemToPickUp.GetComponent<Collider>().enabled = false;
             isHoldingItem = true;
             currentItem = itemToPickUp;
             currentItem.transform.parent = holdingPos.transform;
             currentItem.transform.localPosition = new Vector3(0,0,0);
+            PlayerInteract.instance.RemoveOutline(currentItem);
         }
     }
     private void OnDropItem(InputValue value)
@@ -41,12 +46,17 @@ public class PlayerPickUp : MonoBehaviour
         Debug.Log("dropping");
         if (isHoldingItem)
         {
+            currentItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             currentItem.GetComponent<Rigidbody>().useGravity = true;
             currentItem.GetComponent<Collider>().enabled = true;
-            isHoldingItem = false;
-            currentItem.transform.parent = null;
-            currentItem = null;
+            ReleaseItem();
         }
+    }
+    public void ReleaseItem()
+    {
+        isHoldingItem = false;
+        currentItem.transform.parent = null;
+        currentItem = null;
     }
     public void DestroyCarriedItem()
     {
