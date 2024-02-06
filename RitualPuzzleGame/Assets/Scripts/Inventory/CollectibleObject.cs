@@ -5,10 +5,10 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "CollectibleObject")]
 public class CollectibleObject : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private string prefab;
     [SerializeField] private string itemName;
     [SerializeField] private Sprite itemSprite;
-    public CollectibleObject(GameObject prefab, string itemName, Sprite itemSprite)
+    public CollectibleObject(string prefab, string itemName, Sprite itemSprite)
     {
         this.prefab = prefab;
         this.itemName = itemName;
@@ -27,7 +27,7 @@ public class CollectibleObject : MonoBehaviour
     {
         return itemSprite;
     }
-    public GameObject GetPrefab()
+    public string GetPrefab()
     {
         return prefab;
     }

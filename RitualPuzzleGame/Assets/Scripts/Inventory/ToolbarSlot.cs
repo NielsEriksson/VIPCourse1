@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using System;
 
 public class ToolbarSlot : MonoBehaviour
 {
@@ -70,5 +71,17 @@ public class ToolbarSlot : MonoBehaviour
             _image.sprite = _info.GetSprite();
         }
         else { _image.CrossFadeAlpha(0f,0.5f,true); }
+    }
+
+    internal void DropItem()
+    {
+        if (_info.GetSprite() != null)
+        {
+            GameObject play = GameObject.Find("Player");
+            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Inventory/"+ _info.GetPrefab()+".prefab", typeof(GameObject));
+            GameObject gameObj = Instantiate(prefab, play.transform.position, Quaternion.identity) as GameObject;
+            _info.SetNull();
+            SetImage();
+        }
     }
 }

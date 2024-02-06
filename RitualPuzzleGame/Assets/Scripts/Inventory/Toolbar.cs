@@ -74,4 +74,9 @@ public class Toolbar : MonoBehaviour
     {
         _slotsDict[i].SetItem(co);
     }
+    public void DropItem()
+    {
+        _selectedKey.DropItem();
+        
+    }
 }
