@@ -14,8 +14,10 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I))
+        {ToggleInventory();}
+        if(Input.GetKeyDown(KeyCode.Q))
         {
-            ToggleInventory();
+            toolbar.DropItem();
         }
     }
     private void ToggleInventory()

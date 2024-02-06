@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CollectInfo : ScriptableObject
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private string prefab;
     [SerializeField] private string itemName;
     [SerializeField] private Sprite itemSprite;
-    public CollectInfo(GameObject prefab, string itemName, Sprite itemSprite)
+    public CollectInfo(string prefab, string itemName, Sprite itemSprite)
     {
         this.prefab = prefab;
         this.itemName = itemName;
@@ -22,7 +22,7 @@ public class CollectInfo : ScriptableObject
     {
         return itemSprite;
     }
-    public GameObject GetPrefab()
+    public string GetPrefab()
     {
         return prefab;
     }
