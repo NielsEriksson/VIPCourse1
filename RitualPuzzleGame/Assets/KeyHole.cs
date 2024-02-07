@@ -45,8 +45,8 @@ public class KeyHole : MonoBehaviour, IInteractable
         PlayerPickUp.instance.ReleaseItem();
         currentKey.GetComponent<Collider>().enabled = false;    
         currentKey.transform.parent = transform;
-        currentKey.transform.localPosition = new Vector3(0,0,-0.4f);
-        currentKey.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        //currentKey.transform.localPosition = new Vector3(0,0,-0.4f);
+        //currentKey.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         currentKey.transform.localEulerAngles = new Vector3(90, 0, 0);
     }
 
