@@ -21,13 +21,13 @@ public class LightLeader : MonoBehaviour
     {
         if (other != null)
         {
-            FireNode fireNode = other.GetComponent<FireNode>();
+            FireNode fireNode = other.GetComponentInParent<FireNode>();
             if (fireNode != null)
             {
                 Vector3 rotation = fireNode.transform.localEulerAngles;
                 int turn = (int)Mathf.Round(rotation.y);
 
-                transform.position = fireNode.transform.position;
+                transform.position = fireNode.transform.parent.transform.position;
 
                 if (transform.forward == Vector3.forward)
                 {
