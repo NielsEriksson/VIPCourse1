@@ -8,7 +8,8 @@ public class KeyHole : MonoBehaviour, IInteractable
     public int correctKeyID;
     [HideInInspector] public bool correctKeyIn;
     [HideInInspector] public GameObject currentKey;
-
+    [SerializeField] Vector3 KeyPos;
+    [SerializeField] Vector3 KeyRot;
     public void Interact()
     {
         if (PlayerPickUp.instance.GetCurrentItem() == null) { return; }
@@ -45,9 +46,9 @@ public class KeyHole : MonoBehaviour, IInteractable
         PlayerPickUp.instance.ReleaseItem();
         currentKey.GetComponent<Collider>().enabled = false;    
         currentKey.transform.parent = transform;
-        //currentKey.transform.localPosition = new Vector3(0,0,-0.4f);
+        currentKey.transform.localPosition = KeyPos;
         //currentKey.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        currentKey.transform.localEulerAngles = new Vector3(90, 0, 0);
+        currentKey.transform.localEulerAngles = KeyRot;
     }
 
     public IEnumerator ReleaseKey()

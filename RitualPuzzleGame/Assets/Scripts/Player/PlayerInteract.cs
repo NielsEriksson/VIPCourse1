@@ -35,10 +35,11 @@ public class PlayerInteract : MonoBehaviour
     }
     void LateUpdate()
     {
-        Ray r = new Ray(interactSource.position, interactSource.forward);
+        Ray r = new Ray(interactSource.position + (0.8f * interactSource.forward), interactSource.forward);
+
         if(Physics.Raycast(r, out RaycastHit hitInfo,interactRange)) 
         {
-            Debug.Log(hitInfo.collider.gameObject);
+            Debug.Log(hitInfo.collider.gameObject.name);
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
                 if (objectToInteractGO != null) RemoveOutline(objectToInteractGO);
@@ -49,7 +50,7 @@ public class PlayerInteract : MonoBehaviour
                 SetOutline(objectToInteractGO);
                 return;
             }
-            else
+            else if(hitInfo.collider.gameObject.transform.tag != "Player")
             {
                 if (objectToInteractGO != null)
                 {
@@ -84,15 +85,12 @@ public class PlayerInteract : MonoBehaviour
 
     public void SetOutline(GameObject go)
     {
-        List<Material> materials = new List<Material>();
-        materials.Add(go.GetComponent<Renderer>().material);
-        materials.Add(outlineMaterial);
-        go.GetComponent<Renderer>().SetMaterials(materials);
+        if(go.GetComponent<Outline>()!=null) go.GetComponent<Outline>().enabled = true;
+        else go.GetComponentInChildren<Outline>().enabled = true;
     }
     public void RemoveOutline(GameObject go)
     {
-        List<Material> materials = new List<Material>();
-        materials.Add(go.GetComponent<Renderer>().materials[0]);
-        go.GetComponent<Renderer>().SetMaterials(materials);
+        if (go.GetComponent<Outline>() != null) go.GetComponent<Outline>().enabled = false;
+        else go.GetComponentInChildren<Outline>().enabled = false;
     }
 }

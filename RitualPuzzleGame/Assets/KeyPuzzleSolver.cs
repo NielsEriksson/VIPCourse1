@@ -36,6 +36,6 @@ public class KeyPuzzleSolver : MonoBehaviour
     {
         book.GetComponent<Collider>().enabled = true;
         book.GetComponent<Rigidbody>().useGravity = true;
-        //jumpShelf.SetActive(true);
+        jumpShelf.SetActive(true);
     }
 }
