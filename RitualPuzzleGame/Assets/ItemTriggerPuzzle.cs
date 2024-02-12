@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ItemTriggerPuzzle : MonoBehaviour
 {
     [SerializeField] private string objName;
+    [SerializeField] private GameObject bookObject;
     private void OnTriggerEnter(Collider other)
     {
         Debug.LogWarning(other.gameObject.name);
@@ -16,6 +18,6 @@ public class ItemTriggerPuzzle : MonoBehaviour
     }
     private void TriggerEvent()
     {
-        Debug.Log("CubeEnter");
+        Instantiate(bookObject, gameObject.transform.position, Quaternion.identity);
     }
 }

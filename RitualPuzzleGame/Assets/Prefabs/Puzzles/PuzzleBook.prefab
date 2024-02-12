@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7259647165274981622}
   - component: {fileID: 1112373978130964804}
   - component: {fileID: 2178215892190224160}
-  - component: {fileID: 5284974832189247074}
+  - component: {fileID: -272253223503086700}
+  - component: {fileID: 5856941237894278555}
   m_Layer: 0
   m_Name: PuzzleBook
   m_TagString: PuzzleBook
@@ -153,7 +154,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &5284974832189247074
+--- !u!114 &-272253223503086700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +163,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4985602653010640542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b4a55436e6f6a45a32d1bb9e8d3ee7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5907c86ebecb27a4aa536dfaaa514df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: Puzzles/PuzzleBook
+  itemName: PuzzleBook
+  itemSprite: {fileID: 21300000, guid: 04164474069193245900af8edf740b92, type: 3}
+--- !u!114 &5856941237894278555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985602653010640542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f181cc8cb1dcbfa4aac07f44c4957d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

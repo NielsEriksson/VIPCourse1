@@ -8,6 +8,7 @@ public class PlayerPickUp : MonoBehaviour
     public static PlayerPickUp instance;
     public Transform holdingPos;
     private GameObject currentItem;
+    private ToolbarSlot tbslot;
     [HideInInspector] public bool isHoldingItem;
     // Start is called before the first frame update
     private void Awake()
@@ -27,7 +28,7 @@ public class PlayerPickUp : MonoBehaviour
     {
         return currentItem;
     }
-    public void PickUp(GameObject itemToPickUp) //this method allows to pick up a specific item 
+    public void PickUp(GameObject itemToPickUp, ToolbarSlot tbs = null) //this method allows to pick up a specific item 
     {
         if (!isHoldingItem)
         {
@@ -39,6 +40,7 @@ public class PlayerPickUp : MonoBehaviour
             currentItem.transform.parent = holdingPos.transform;
             currentItem.transform.localPosition = new Vector3(0,0,0);
             PlayerInteract.instance.RemoveOutline(currentItem);
+            if(tbs!=null) tbslot = tbs;
         }
     }
     private void OnDropItem(InputValue value)
@@ -60,6 +62,11 @@ public class PlayerPickUp : MonoBehaviour
         isHoldingItem = false;
         currentItem.transform.parent = null;
         currentItem = null;
+        if (tbslot != null)
+        {
+            tbslot.ClearItem();
+            tbslot = null;
+        }
     }
     public void DestroyCarriedItem()
     {

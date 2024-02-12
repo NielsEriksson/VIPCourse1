@@ -10,7 +10,7 @@ public class ToolbarSlot : MonoBehaviour
 {
     private Image _bgImage;
     private Image _image;
-    
+    private GameObject tempVis;
     private CollectInfo _info;
 
     private void Awake()
@@ -41,7 +41,8 @@ public class ToolbarSlot : MonoBehaviour
     {       
         _info = new CollectInfo(co.GetPrefab(), co.GetText(), co.GetSprite());       
         SetImage();
-        
+        if (_bgImage.color == Color.green) SetCarry();
+
     }
     public void ReturnItem()
     {
@@ -52,12 +53,26 @@ public class ToolbarSlot : MonoBehaviour
             _info = item;           
         }
         else { _info.SetNull(); }
-        SetImage();
+        SetImage();       
     }
-
+    private void SetCarry()
+    {
+        GameObject play = GameObject.FindGameObjectWithTag("Player");
+        GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/" + _info.GetPrefab() + ".prefab", typeof(GameObject)) as GameObject;
+        GameObject tempVis = Instantiate(prefab, play.transform.position, Quaternion.identity);
+        PlayerPickUp.instance.PickUp(tempVis, this);
+    }
     public void OnSelected()
     {
         _bgImage.color = Color.green;
+        if(_info.GetSprite() !=null)
+        {
+            SetCarry();
+        }
+        else
+        {
+            PlayerPickUp.instance.DestroyCarriedItem();           
+        }
     }
     public void OffSelected()
     {
@@ -77,11 +92,18 @@ public class ToolbarSlot : MonoBehaviour
     {
         if (_info.GetSprite() != null)
         {
-            GameObject play = GameObject.Find("Player");
-            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Inventory/"+ _info.GetPrefab()+".prefab", typeof(GameObject));
-            GameObject gameObj = Instantiate(prefab, play.transform.position, Quaternion.identity) as GameObject;
-            _info.SetNull();
-            SetImage();
+            PlayerPickUp.instance.DestroyCarriedItem();
+            Debug.Log(_info.GetPrefab());
+            GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/"+ _info.GetPrefab()+".prefab", typeof(GameObject)) as GameObject;
+            
+            Instantiate(prefab, PlayerPickUp.instance.holdingPos.position, Quaternion.identity);
+
+            ClearItem();
         }
+    }
+    public void ClearItem()
+    {
+        _info.SetNull();
+        SetImage();
     }
 }

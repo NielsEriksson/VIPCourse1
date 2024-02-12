@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1025772572539365549}
   - component: {fileID: 3728503320261916755}
   - component: {fileID: -4819231043911464361}
+  - component: {fileID: 7508045415294036115}
   m_Layer: 0
   m_Name: Key 3
   m_TagString: Untagged
@@ -166,3 +167,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7508045415294036115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095698270170736847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5907c86ebecb27a4aa536dfaaa514df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: Puzzles/Key 3
+  itemName: Key 3
+  itemSprite: {fileID: 21300000, guid: 427a4a05833ffba4ba73ef5f552ecea3, type: 3}
