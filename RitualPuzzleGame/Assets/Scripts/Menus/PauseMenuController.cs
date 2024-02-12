@@ -6,7 +6,7 @@ public class PauseMenuController : MonoBehaviour
 {
     private bool isPaused;
 
-    [SerializeField] private GameObject playing, paused;
+    [SerializeField] private GameObject playing, paused, handIcon;
 
     public void OnToggleMenu()
     {
@@ -14,6 +14,8 @@ public class PauseMenuController : MonoBehaviour
         
         playing.SetActive(!isPaused);
         paused.SetActive(isPaused);
+        if(isPaused ) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Quit()

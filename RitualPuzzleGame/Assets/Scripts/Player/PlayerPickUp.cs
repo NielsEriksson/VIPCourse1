@@ -43,7 +43,10 @@ public class PlayerPickUp : MonoBehaviour
     }
     private void OnDropItem(InputValue value)
     {
-        Debug.Log("dropping");
+        DropItem();
+    }
+    public void DropItem()
+    {
         if (isHoldingItem)
         {
             currentItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
