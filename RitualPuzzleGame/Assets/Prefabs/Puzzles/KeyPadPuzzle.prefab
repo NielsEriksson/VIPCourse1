@@ -227,7 +227,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &530504362213961877
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &985781442921729927
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &1249042007484367409
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &1515654632708815651
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &1788928407931254247
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8388400699169976821}
+  - component: {fileID: 2689438022119191827}
   m_Layer: 0
   m_Name: KeyPadPuzzle
   m_TagString: Untagged
@@ -753,6 +754,19 @@ Transform:
   - {fileID: 3916368494218543990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2689438022119191827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788928407931254247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf93798b47d65c948a8addf0ad003ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctOrder: 060000000100000008000000070000000500000003000000020000000900000004000000
 --- !u!1 &2729247141361589338
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +889,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &2804919886857054824
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1012,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &2869655721874617735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1910,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &7645902937648350245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1920,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6848530595850476239}
-  - component: {fileID: 5325288431772620139}
   m_Layer: 0
   m_Name: Buttons
   m_TagString: Untagged
@@ -1938,19 +1951,6 @@ Transform:
   - {fileID: 3785128957615592873}
   m_Father: {fileID: 8388400699169976821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5325288431772620139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645902937648350245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf93798b47d65c948a8addf0ad003ed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctOrder: 060000000100000008000000070000000500000003000000020000000900000004000000
 --- !u!1 &9133066136376751575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +2073,7 @@ MonoBehaviour:
   pressed: 0
   pressDistance: 0.1
   speed: 0.05
-  keyPad: {fileID: 5325288431772620139}
+  keyPad: {fileID: 2689438022119191827}
 --- !u!1 &9149623100077780460
 GameObject:
   m_ObjectHideFlags: 0
