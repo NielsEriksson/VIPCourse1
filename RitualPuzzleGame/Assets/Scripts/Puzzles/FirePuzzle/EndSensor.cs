@@ -9,6 +9,8 @@ public class EndSensor : MonoBehaviour
 
     [SerializeField] private MeshRenderer meshRenderer;
 
+    [SerializeField] private MeshCollider boxCollider;
+
     [SerializeField] private BoxCollider bookCollider;
 
     private void Start()
@@ -19,7 +21,8 @@ public class EndSensor : MonoBehaviour
 
     public void Complete()
     {
-        meshRenderer.materials[1] = completeMaterial;
+        
+        boxCollider.gameObject.SetActive(false);
         bookCollider.enabled = true;
     }
 }
