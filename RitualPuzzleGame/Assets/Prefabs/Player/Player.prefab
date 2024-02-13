@@ -683,6 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingPos: {fileID: 4462695918356298097}
   isHoldingItem: 0
+  interactionToolTip: {fileID: 8177766750035965519}
 --- !u!1 &7146979227842826263
 GameObject:
   m_ObjectHideFlags: 0

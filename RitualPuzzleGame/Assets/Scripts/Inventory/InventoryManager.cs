@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
     [SerializeField]private Toolbar toolbar;
+    [SerializeField]private GameObject interactionToolTip;
     private void Awake()
     {
         if(Instance== null)
@@ -31,6 +32,7 @@ public class InventoryManager : MonoBehaviour
         if(avail!=0)
         {
             toolbar.SetItem(avail, obj);
+            interactionToolTip.GetComponent<CanvasGroup>().alpha = 0;
             return true;
         }
         return false;
