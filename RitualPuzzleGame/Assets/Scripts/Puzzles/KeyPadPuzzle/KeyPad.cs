@@ -8,17 +8,11 @@ public class KeyPad : MonoBehaviour
     [SerializeField] int[] correctOrder;
     private List<int> currentOrder;
 
+    [SerializeField] private FirePlace firePlace;
+
     private void Start()
     {
         currentOrder = new List<int>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ResetKeyPad();
-        }
     }
 
     public void AddIndex(int index)
@@ -28,7 +22,7 @@ public class KeyPad : MonoBehaviour
         {
             if (CheckOrder())
             {
-                //unlock
+                firePlace.OpenFirePlace();
             }
             else
             {

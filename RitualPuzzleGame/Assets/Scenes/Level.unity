@@ -533,6 +533,12 @@ Transform:
   - {fileID: 1179321261}
   m_Father: {fileID: 598407835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &55556424 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2244209065085917056, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762362603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &63702400
 Transform:
   m_ObjectHideFlags: 0
@@ -8344,7 +8350,7 @@ Transform:
   m_GameObject: {fileID: 807249488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00048, z: 0.00128}
+  m_LocalPosition: {x: 0, y: -0.00048, z: 0.00074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11421,6 +11427,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1043523131 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 687524428615089988, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762362603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057760290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12422,6 +12434,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e7ee89065fd491b4698c3ac5ff76bccf, type: 2}
+    - target: {fileID: 2689438022119191827, guid: 7c3f60a638772c04cb10a73736cc45bb,
+        type: 3}
+      propertyPath: firePlace
+      value: 
+      objectReference: {fileID: 8709581613369588273}
     - target: {fileID: 2766247786226995414, guid: 7c3f60a638772c04cb10a73736cc45bb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -19436,6 +19453,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6871164933977601479, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: bookCollider
+      value: 
+      objectReference: {fileID: 1043523131}
+    - target: {fileID: 6871164933977601479, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 55556424}
+    - target: {fileID: 6871164933977601479, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
+        type: 3}
+      propertyPath: completeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f535ae76880df1f42b17ea25b0a0cee2, type: 2}
     - target: {fileID: 7037073347626267117, guid: 8e984c22d7d77b4488c79b3ac1f91af8,
         type: 3}
       propertyPath: m_Mesh

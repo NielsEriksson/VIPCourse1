@@ -10,15 +10,6 @@ public class FirePlace : MonoBehaviour
 
     [SerializeField] private Transform endPosition;
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            OpenFirePlace();
-        }
-    }
-
     public void OpenFirePlace()
     {
         transform.position = endPosition.position;
