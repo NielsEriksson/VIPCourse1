@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f425547c289618247814997e96cca6b6
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/BenDeLaScenes/Fire.unity
     guid: 0d4e3f0f8c286224d914f983d8067135
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f425547c289618247814997e96cca6b6
-  - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 71dde118f87eb794288e11afada4a096
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: f27f3032f7634394bbd640223ed7ca0d
   m_configObjects: {}

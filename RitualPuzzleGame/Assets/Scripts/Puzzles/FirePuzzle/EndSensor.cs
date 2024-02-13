@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class EndSensor : MonoBehaviour
 {
-   
 
+    [SerializeField] private Material completeMaterial;
+
+    [SerializeField] private MeshRenderer meshRenderer;
+
+    private void Start()
+    {
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
 
     public void Complete()
     {
-        Debug.Log("oog");
+        meshRenderer.materials[1] = completeMaterial;
     }
 }

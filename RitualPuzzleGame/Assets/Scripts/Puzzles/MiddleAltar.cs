@@ -43,6 +43,7 @@ public class MiddleAltar : MonoBehaviour,IInteractable
     public void CheckVictory()
     {
         if(litCandles !=5) { return; }
-        //win stuff thing sin here
+
+        SceneController.LoadScene("EndScene");
     }
 }
