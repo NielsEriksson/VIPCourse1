@@ -57,22 +57,37 @@ public class ToolbarSlot : MonoBehaviour
     }
     private void SetCarry()
     {
+        
         GameObject play = GameObject.FindGameObjectWithTag("Player");
         GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/" + _info.GetPrefab() + ".prefab", typeof(GameObject)) as GameObject;
-        GameObject tempVis = Instantiate(prefab, play.transform.position, Quaternion.identity);
-        PlayerPickUp.instance.PickUp(tempVis, this);
-    }
-    public void OnSelected()
-    {
-        _bgImage.color = Color.green;
-        if(_info.GetSprite() !=null)
+        if(tempVis!=null)
         {
-            SetCarry();
+            Debug.Log(tempVis.name + " : " + prefab.name);
+            if (tempVis.name != prefab.name + "(Clone)")
+            {
+                tempVis = Instantiate(prefab, play.transform.position, Quaternion.identity);
+                PlayerPickUp.instance.PickUp(tempVis, this);
+            }
         }
         else
         {
-            PlayerPickUp.instance.DestroyCarriedItem();           
+            tempVis = Instantiate(prefab, play.transform.position, Quaternion.identity);
+            PlayerPickUp.instance.PickUp(tempVis, this);
         }
+        
+    }
+    public void OnSelected()
+    {       
+
+            _bgImage.color = Color.green;
+            if (_info.GetSprite() != null)
+            {
+                SetCarry();
+            }
+            else
+            {
+                PlayerPickUp.instance.DestroyCarriedItem();
+            }            
     }
     public void OffSelected()
     {
