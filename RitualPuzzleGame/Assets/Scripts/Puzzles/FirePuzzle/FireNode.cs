@@ -13,7 +13,7 @@ public class FireNode : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        rotationDuration = 3f;
+        rotationDuration = 1f;
         rotationIndex = (int)(transform.localEulerAngles.y / 45f);
     }
 
