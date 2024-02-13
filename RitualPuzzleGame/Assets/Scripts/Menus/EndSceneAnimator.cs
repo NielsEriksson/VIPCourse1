@@ -39,7 +39,7 @@ public class EndSceneAnimator : MonoBehaviour
             RectTransform triangleTransform = segment.GetComponentsInChildren<RectTransform>()[1];
 
             triangleTransform.sizeDelta = new Vector2(b, h);
-            triangleTransform.Translate(new Vector3(0, -10 - h / 2f));
+            triangleTransform.Translate(new Vector3(0, -10 - h));
             segmentTransform.Rotate(0, 0, angle * i);
             segments.Add(segment);
         }
@@ -66,7 +66,7 @@ public class EndSceneAnimator : MonoBehaviour
             eyes.SetActive(!eyes.activeInHierarchy);
 
             
-            yield return new WaitForSeconds((dex % 2) * 1.5f + 0.5f);
+            yield return new WaitForSeconds((dex % 2) * 1.5f + 0.25f);
         }
     }
 }

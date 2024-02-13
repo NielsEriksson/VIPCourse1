@@ -19,11 +19,7 @@ public class PickToInv : PickUpable
     }
     public override void SetInteractionMessage(GameObject eInteract)
     {
-        if (PlayerPickUp.instance != null && PlayerPickUp.instance.isHoldingItem)
-        {
-            eInteract.GetComponent<CanvasGroup>().alpha = 0;
-            return;
-        }
+        
         eInteract.GetComponentInChildren<TMP_Text>().text = "Add to Inventory";
     }
 }

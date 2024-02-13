@@ -10,6 +10,7 @@ public class PlayerPickUp : MonoBehaviour
     private GameObject currentItem;
     private ToolbarSlot tbslot;
     [HideInInspector] public bool isHoldingItem;
+    [SerializeField] private GameObject interactionToolTip;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -40,7 +41,8 @@ public class PlayerPickUp : MonoBehaviour
             currentItem.transform.parent = holdingPos.transform;
             currentItem.transform.localPosition = new Vector3(0,0,0);
             PlayerInteract.instance.RemoveOutline(currentItem);
-            if(tbs!=null) tbslot = tbs;
+            interactionToolTip.GetComponent<CanvasGroup>().alpha = 0;
+            if (tbs!=null) tbslot = tbs;
         }
     }
     private void OnDropItem(InputValue value)
