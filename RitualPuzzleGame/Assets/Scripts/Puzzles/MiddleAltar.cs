@@ -10,7 +10,7 @@ public class MiddleAltar : MonoBehaviour,IInteractable
     public void Interact()
     {
         GameObject carryingObject = PlayerPickUp.instance.GetCurrentItem();
-        if (carryingObject !=null && carryingObject.transform.tag != "PuzzleBook") return;
+        if (carryingObject == null || (carryingObject !=null && carryingObject.transform.tag != "PuzzleBook")) return;
 
         LightCandle(GetCandleToLight(), carryingObject);
         CheckVictory();
