@@ -19,7 +19,7 @@ public class KeyPadButton : MonoBehaviour, IInteractable
     private void Start()
     {
         startPosition = transform.position;
-        pressedPosition = transform.position + new Vector3(0, 0, pressDistance);
+        pressedPosition = transform.position + pressDistance * transform.forward;
     }
 
 
