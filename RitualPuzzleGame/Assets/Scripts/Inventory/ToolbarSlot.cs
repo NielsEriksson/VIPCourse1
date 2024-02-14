@@ -17,11 +17,11 @@ public class ToolbarSlot : MonoBehaviour
     {
         _bgImage = gameObject.transform.GetChild(0).GetComponent<Image>();
         _image = gameObject.transform.GetChild(1).GetComponent<Image>();
-        
+
     }
     private void Start()
     {
-        if(_info==null)
+        if (_info == null)
         {
             _info = new CollectInfo(null, "", null);
         }
@@ -29,7 +29,7 @@ public class ToolbarSlot : MonoBehaviour
     }
     public string GetText()
     {
-        if(_info != null)
+        if (_info != null)
             return _info.GetText();
         return "";
     }
@@ -38,8 +38,8 @@ public class ToolbarSlot : MonoBehaviour
         return _info;
     }
     public void SetItem(CollectibleObject co)
-    {       
-        _info = new CollectInfo(co.GetPrefab(), co.GetText(), co.GetSprite());       
+    {
+        _info = new CollectInfo(co.GetPrefab(), co.GetText(), co.GetSprite());
         SetImage();
         if (_bgImage.color == Color.green) SetCarry();
 
@@ -50,17 +50,17 @@ public class ToolbarSlot : MonoBehaviour
         if (item != null)
         {
             CollectInfo tempTex = _info;
-            _info = item;           
+            _info = item;
         }
         else { _info.SetNull(); }
-        SetImage();       
+        SetImage();
     }
     private void SetCarry()
     {
-        
+
         GameObject play = GameObject.FindGameObjectWithTag("Player");
         GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/" + _info.GetPrefab() + ".prefab", typeof(GameObject)) as GameObject;
-        if(tempVis!=null)
+        if (tempVis != null)
         {
             Debug.Log(tempVis.name + " : " + prefab.name);
             if (tempVis.name != prefab.name + "(Clone)")
@@ -74,20 +74,20 @@ public class ToolbarSlot : MonoBehaviour
             tempVis = Instantiate(prefab, play.transform.position, Quaternion.identity);
             PlayerPickUp.instance.PickUp(tempVis, this);
         }
-        
+
     }
     public void OnSelected()
-    {       
+    {
 
-            _bgImage.color = Color.green;
-            if (_info.GetSprite() != null)
-            {
-                SetCarry();
-            }
-            else
-            {
-                PlayerPickUp.instance.DestroyCarriedItem();
-            }            
+        _bgImage.color = Color.green;
+        if (_info.GetSprite() != null)
+        {
+            SetCarry();
+        }
+        else
+        {
+            PlayerPickUp.instance.DestroyCarriedItem();
+        }
     }
     public void OffSelected()
     {
@@ -95,12 +95,12 @@ public class ToolbarSlot : MonoBehaviour
     }
     private void SetImage()
     {
-        if(_info.GetSprite()!=null)
+        if (_info.GetSprite() != null)
         {
             _image.CrossFadeAlpha(1f, 0.5f, true);
             _image.sprite = _info.GetSprite();
         }
-        else { _image.CrossFadeAlpha(0f,0.5f,true); }
+        else { _image.CrossFadeAlpha(0f, 0.5f, true); }
     }
 
     internal void DropItem()
@@ -109,8 +109,8 @@ public class ToolbarSlot : MonoBehaviour
         {
             PlayerPickUp.instance.DestroyCarriedItem();
             Debug.Log(_info.GetPrefab());
-            GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/"+ _info.GetPrefab()+".prefab", typeof(GameObject)) as GameObject;
-            
+            GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/" + _info.GetPrefab() + ".prefab", typeof(GameObject)) as GameObject;
+
             Instantiate(prefab, PlayerPickUp.instance.holdingPos.position, Quaternion.identity);
 
             ClearItem();
